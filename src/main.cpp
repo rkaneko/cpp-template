@@ -6,7 +6,7 @@ namespace {
 
 } // anounymous namespace
 
-int main(int argc, char* argv)
+int main(int argc, char* argv[])
 {
     std::cout << "Hello C++ world !" << std::endl;
     return 0;
