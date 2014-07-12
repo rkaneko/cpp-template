@@ -45,11 +45,11 @@ build: $(EXE)
 
 
 $(EXE): $(OBJECTS)
-\t$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
+\\t$(CXX) $(CXXFLAGS) -o $@ $(OBJECTS)
 
 $(OBJECTS): $(HEADERS)
 
 clean:
-\trm -f $(OBJECTS) $(EXE)
+\\trm -f $(OBJECTS) $(EXE)
 
 .PHONY: all build clean
