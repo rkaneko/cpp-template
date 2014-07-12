@@ -23,6 +23,13 @@ echo "Invoking "${PARENT_DIR}/${THIS_SCRIPT_NAME}
 # create Makefile from script/template/Makefile
 createMakefile()
 {
+    if [ `existArg1 $1` = false ]
+    then
+        cat <<_EOT_
+error l29 at cpp-template/script/init.sh !
+_EOT_
+        exit 1
+    fi
     local MAKEFILE="Makefile"
 
     local PATH_2_MAKEFILE=${WORKING_DIR}/${MAKEFILE}
@@ -38,7 +45,7 @@ createMakefile()
     while read LINE
 
     do
-        echo ${LINE} >>${PATH_2_MAKEFILE}
+        printf ${LINE}'\n' >>${PATH_2_MAKEFILE}
     done < ${PARENT_DIR}/template/${MAKEFILE}
 
     echo "Created Makefile !"
@@ -88,7 +95,7 @@ touchReadme()
 
 echo "Your project name is: "$1
 
-createMakefile
+createMakefile $1
 
 deleteDotGit
 
