@@ -48,7 +48,7 @@ createMakefile()
     return
 }
 
-# delete .git directories
+# delete .git directories and .gitkeep
 deleteDotGit()
 {
     DOT_GIT_DIRS=`find ${WORKING_DIR} -name .git`
@@ -56,6 +56,13 @@ deleteDotGit()
     do
         # echo ${DOT_GIT_DIR}
         rm -rf ${DOT_GIT_DIR}
+    done
+
+    DOT_GIT_KEEPS=`find ${WORKING_DIR} -name .gitkeep`
+    for DOT_GIT_KEEP in ${DOT_GIT_KEEPS[@]}
+    do
+        # echo ${DOT_GIT_KEEP}
+        rm -rf ${DOT_GIT_KEEP}
     done
     return
 }
