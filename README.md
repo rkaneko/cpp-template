@@ -17,7 +17,7 @@ $ cd $HOME
 $ mkdir $HOME/bin
 
 # (optional) If you haven't add PATH to $HOME/bin yet,
-$ echo "export PATH=$PATH:$HOME/bin >>$HOME/.bashrc
+$ echo "export PATH=$PATH:$HOME/bin" >>$HOME/.bashrc
 
 # (optional)
 $ source .bashrc
