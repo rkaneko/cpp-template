@@ -8,6 +8,14 @@ REPOSITORY_NAME="cpp-template"
 # include utility.sh
 . ${PARENT_DIR}/utility.sh
 
+if [ `existArg1 $1` = false ]
+then
+    cat <<_EOT_
+error l14 at cpp-template/script/init.sh !
+_EOT_
+    exit 1
+fi
+
 SRC_DIR_NAME="src"
 
 echo "Invoking "${PARENT_DIR}/${THIS_SCRIPT_NAME}
@@ -22,20 +30,10 @@ createMakefile()
     # invoke from utility.sh
     deleteFile ${PATH_2_MAKEFILE}
 
-    echo "Input your project name."
 
-    read -p \>\  PROJECT_NAME
-
-    # echo "Input author name."
-
-    # read -p \>\  AUTHOR_NAME
-
-    echo "Your project name is: "${PROJECT_NAME}
-    # echo "Author name is: "${AUTHOR_NAME}
-
-    echo "# Makefile for "${PROJECT_NAME} >${PATH_2_MAKEFILE}
+    echo "# Makefile for "$1 >${PATH_2_MAKEFILE}
     echo "" >>${PATH_2_MAKEFILE}
-    echo "PROJECT_NAME = "${PROJECT_NAME} >>${PATH_2_MAKEFILE}
+    echo "PROJECT_NAME = "$1 >>${PATH_2_MAKEFILE}
 
     while read LINE
 
@@ -85,6 +83,10 @@ touchReadme()
     touch ${WORKING_DIR}/README.md
     return
 }
+
+###############################################################################
+
+echo "Your project name is: "$1
 
 createMakefile
 
