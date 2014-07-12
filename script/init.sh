@@ -45,7 +45,7 @@ _EOT_
     while read LINE
 
     do
-        printf ${LINE}'\n' >>${PATH_2_MAKEFILE}
+        echo -e ${LINE} >>${PATH_2_MAKEFILE}
     done < ${PARENT_DIR}/template/${MAKEFILE}
 
     echo "Created Makefile !"
