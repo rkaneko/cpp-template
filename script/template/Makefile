@@ -20,10 +20,11 @@ ARCHIVE=$(PROJECT_NAME)-$(VERSION)
 CC = clang
 CXX = clang++
 
-# WARNFLAGS = -Wall
-WARNFLAGS = -Wall -Wnon-virtual-dtor -Woverloaded-virtual
+# WARNFLAGS = -Wall -Wextra
+WARNFLAGS = -Wall -Wextra -Wnon-virtual-dtor -Woverloaded-virtual
+INCOPTS = -I $(INC)
 
-CXXFLAGS = -std=gnu++11 $(WARNFLAGS)
+CXXFLAGS = -std=gnu++11 $(WARNFLAGS) $(INCOPTS)
 
 LIBS_HEADERS = $(shell find $(INC)/ -name *.h)
 LIBS_HEADERS += $(shell find $(INC)/ -name *.hpp)
